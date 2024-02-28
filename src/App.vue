@@ -1,5 +1,14 @@
 <script setup>
+  import {ref} from 'vue'
 
+  let id = 0
+
+  const groceries = ref([
+    {id: id++, name: "Brood", price: 1.00},
+    {id: id++, name: "Broccoli", price: 0.99},
+    {id: id++, name: "Krettebollen", price: 1.20},
+    {id: id++, name: "Noten", price: 2.99}
+  ])
 </script>
 
 <template>
@@ -13,10 +22,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td class="px-4 py-2">Bread</td>
-        <td class="px-4 py-2">1.00</td>
-        <td><input type="number" value="0" min="0" class="border border-slate-500 border-solid rounded-md pl-2"></td>
+      <tr v-for="product in groceries" :key="groceries.id">
+        <td class="px-4 py-2">{{ product.name }}</td>
+        <td class="px-4 py-2">{{ product.price }}</td>
+        <td><input id="number" type="number" value="0" min="0" class="border border-slate-500 border-solid rounded-md pl-2"></td>
         <td class="px-4 py-2">0</td>
       </tr>
       <tr class="border-t border-slate-900 border-solid">
