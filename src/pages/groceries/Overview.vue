@@ -1,6 +1,6 @@
 <script setup>
     import {getAllProducts} from "./../../store/Groceries.js"
-    import GroceriesTable from "./../../components/GroceriesTable.vue";
+    import GroceriesTable from "./../../components/GroceriesTable.vue"
 
 </script>
 
