@@ -16,3 +16,8 @@ export const getProductById = (id) => computed(() => groceries.value.find(produc
 
 //Actions
 export const addProduct = (product) => groceries.value.push(product)
+export const updateProduct = (product) => {
+    groceries.value.splice(product.id, 1)
+    groceries.value.push(product)
+}
+export const deleteProduct = (product) => groceries.value.splice(product.id, 1)

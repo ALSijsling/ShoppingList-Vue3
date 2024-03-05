@@ -1,6 +1,5 @@
 <script setup>
     import GroceryForm from '../../components/GroceryForm.vue'
-    import { getAllProducts } from '../../store/Groceries'
     import { addProduct } from '../../store/Groceries'
 
     const product = {};

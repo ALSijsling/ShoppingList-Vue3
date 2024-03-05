@@ -1,5 +1,6 @@
 <script setup>
   import {ref, computed} from "vue"
+  import { deleteProduct } from "../store/Groceries"
   
   const props = defineProps(["groceries"])
   const groceries = ref(props.groceries)
@@ -25,6 +26,10 @@
             <td class="px-4 py-2">&euro; {{ product.price.toFixed(2) }}</td>
             <td><input v-model="product.amount" type="number" value="0" min="0" class="border border-slate-500 border-solid rounded-md pl-2"></td>
             <td class="px-4 py-2">&euro; {{ (product.price * product.amount).toFixed(2) }}</td>
+            <td>
+                <router-link class="px-2 py-1 bg-emerald-500 border-black solid rounded-lg" :to="{name: 'Edit', params:{id: product.id}}">Edit</router-link>
+                <button class="ml-2 px-2 py-1 bg-red-500 border-black solid rounded-lg" @click="deleteProduct(product)">Delete</button>
+            </td>
         </tr>
         <tr class="border-t border-slate-900 border-solid">
             <td class="px-4 py-2 font-bold" colspan="3">Total</td>
